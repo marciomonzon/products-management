@@ -83,7 +83,6 @@ namespace ProductsManagement.Application.UseCases.ProductUseCase.Validations
                 return new BaseResponse<bool>
                 {
                     Success = false,
-                    Message = string.Join("; ", errors),
                     Data = false,
                     Errors = errors
                 };
