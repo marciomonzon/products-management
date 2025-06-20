@@ -12,7 +12,8 @@ namespace ProductsManagement.Application.UseCases.ProductUseCase.Mapping
             entity.Create(request.Name,
                           request.Description,
                           request.Price,
-                          request.CategoryId);
+                          request.CategoryId,
+                          request.Stock);
             return entity;
         }
 
@@ -21,7 +22,8 @@ namespace ProductsManagement.Application.UseCases.ProductUseCase.Mapping
             product.Update(request.Name,
                           request.Description,
                           request.Price,
-                          request.CategoryId);
+                          request.CategoryId,
+                          request.Stock);
         }
 
         public static ProductResponse ToResponse(Product product)
