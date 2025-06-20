@@ -1,4 +1,8 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+using ProductsManagement.Application.Persistence;
+using ProductsManagement.Infrastructure.Data;
+using ProductsManagement.Infrastructure.Persistence;
 
 namespace ProductsManagement.Infrastructure
 {
@@ -7,12 +11,11 @@ namespace ProductsManagement.Infrastructure
         public static IServiceCollection AddInfrastructure(this IServiceCollection services)
         {
             services.AddScoped<IProductRepository, ProductRepository>();
-            services.AddScoped<ICategoryRepository, CategoryRepository>();
 
-            //services.AddDbContext<AppDbContext>(options =>
-            //{
-            //    options.UseSqlServer("SuaConnectionStringAqui");
-            //});
+            services.AddDbContext<AppDbContext>(options =>
+            {
+                options.UseSqlServer("DefaultConnection");
+            });
 
             return services;
         }
