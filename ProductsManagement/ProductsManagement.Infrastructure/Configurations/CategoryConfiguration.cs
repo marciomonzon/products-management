@@ -14,6 +14,7 @@ namespace ProductsManagement.Infrastructure.Configurations
 
             builder.Property(c => c.Name)
                    .IsRequired()
+                   .HasColumnType("varchar")
                    .HasMaxLength(100);
         }
     }

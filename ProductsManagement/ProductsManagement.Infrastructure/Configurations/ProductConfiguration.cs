@@ -14,6 +14,7 @@ namespace ProductsManagement.Infrastructure.Configurations
 
             builder.Property(p => p.Name)
                    .IsRequired()
+                   .HasColumnType("varchar")
                    .HasMaxLength(100);
 
             builder.Property(p => p.Price)
@@ -21,6 +22,7 @@ namespace ProductsManagement.Infrastructure.Configurations
 
             builder.Property(p => p.Description)
                    .IsRequired()
+                   .HasColumnType("varchar")
                    .HasMaxLength(500);
 
             builder.HasOne(p => p.Category)
