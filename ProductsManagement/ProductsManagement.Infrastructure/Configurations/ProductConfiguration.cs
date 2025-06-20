@@ -20,6 +20,7 @@ namespace ProductsManagement.Infrastructure.Configurations
                    .HasColumnType("decimal(18,2)");
 
             builder.Property(p => p.Description)
+                   .IsRequired()
                    .HasMaxLength(500);
 
             builder.HasOne(p => p.Category)

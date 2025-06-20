@@ -10,10 +10,25 @@
         public int CategoryId { get; private set; }
         public Category Category { get; set; } = new Category();
 
-        public void CreateNewProduct(string name,
-                                     string description,
-                                     decimal price,
-                                     int categoryId)
+        public Product()
+        {
+        }
+
+        public void Create(string name,
+                           string description,
+                           decimal price,
+                           int categoryId)
+        {
+            Name = name.Trim();
+            Description = description.Trim();
+            Price = price;
+            CategoryId = categoryId;
+        }
+
+        public void Update(string name,
+                           string description,
+                           decimal price,
+                           int categoryId)
         {
             Name = name.Trim();
             Description = description.Trim();
