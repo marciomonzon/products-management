@@ -2,8 +2,13 @@
 {
     public class Category
     {
-        public int Id { get; set; }
-        public string Name { get; set; } = default!;
-        public ICollection<ProductCategory> ProductCategories { get; set; } = new List<ProductCategory>();
+        public int Id { get; private set; }
+        public string Name { get; private set; } = string.Empty;
+        public ICollection<Product> Products { get; set; } = new List<Product>();
+
+        public void CreateNewCategory(string name)
+        {
+            Name = name.Trim();
+        }
     }
 }
