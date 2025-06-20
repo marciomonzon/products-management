@@ -18,39 +18,52 @@ namespace ProductsManagement.API.Controllers
         [HttpPost]
         public async Task<IActionResult> Create([FromBody] CreateProductRequest request)
         {
-            var id = await _productUseCase.CreateAsync(request);
-            return CreatedAtAction(nameof(GetById), new { id }, null);
+            var result = await _productUseCase.CreateAsync(request);
+
+            if (!result.Success)
+                return BadRequest(result);
+
+            return CreatedAtAction(nameof(GetById), new { id = result.Data }, result);
         }
 
         [HttpPut("{id}")]
         public async Task<IActionResult> Update(int id, [FromBody] UpdateProductRequest request)
         {
-            await _productUseCase.UpdateAsync(id, request);
+            var result = await _productUseCase.UpdateAsync(id, request);
+
+            if (!result.Success)
+                return BadRequest(result);
+
             return NoContent();
         }
 
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(int id)
         {
-            await _productUseCase.DeleteAsync(id);
+            var result = await _productUseCase.DeleteAsync(id);
+
+            if (!result.Success)
+                return NotFound(result);
+
             return NoContent();
         }
 
         [HttpGet("{id}")]
         public async Task<IActionResult> GetById(int id)
         {
-            var product = await _productUseCase.GetByIdAsync(id);
-            if (product == null)
-                return NotFound();
+            var result = await _productUseCase.GetByIdAsync(id);
 
-            return Ok(product);
+            if (!result.Success || result.Data == null)
+                return NotFound(result);
+
+            return Ok(result);
         }
 
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {
-            var products = await _productUseCase.GetAllAsync();
-            return Ok(products);
+            var result = await _productUseCase.GetAllAsync();
+            return Ok(result);
         }
     }
 }
