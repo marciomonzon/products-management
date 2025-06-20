@@ -11,7 +11,7 @@ using ProductsManagement.Infrastructure.Data;
 namespace ProductsManagement.Infrastructure.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20250620215318_InitialCreate")]
+    [Migration("20250620220517_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -78,7 +78,7 @@ namespace ProductsManagement.Infrastructure.Migrations
                     b.HasOne("ProductsManagement.Domain.Entities.Category", "Category")
                         .WithMany("Products")
                         .HasForeignKey("CategoryId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.Navigation("Category");

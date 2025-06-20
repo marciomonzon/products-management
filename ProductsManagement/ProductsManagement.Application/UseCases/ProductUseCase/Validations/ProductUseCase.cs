@@ -40,6 +40,7 @@ namespace ProductsManagement.Application.UseCases.ProductUseCase.Validations
 
             var product = ProductMapper.ToEntity(request);
             await _productRepository.AddAsync(product);
+            await _productRepository.SaveChangesAsync();
 
             return BaseResponse<int>.Ok(product.Id, "Product created successfully");
         }
@@ -51,6 +52,8 @@ namespace ProductsManagement.Application.UseCases.ProductUseCase.Validations
                 return BaseResponse<bool>.Fail($"Product with id {id} not found.");
 
             _productRepository.Remove(product);
+            await _productRepository.SaveChangesAsync();
+
             return BaseResponse<bool>.Ok(true, "Product deleted successfully");
         }
 
@@ -92,6 +95,7 @@ namespace ProductsManagement.Application.UseCases.ProductUseCase.Validations
 
             ProductMapper.MapUpdate(product, request);
             _productRepository.Update(product);
+            await _productRepository.SaveChangesAsync();
 
             return BaseResponse<bool>.Ok(true, "Product updated successfully");
         }
