@@ -1,8 +1,8 @@
 ﻿using FluentValidation;
 using Microsoft.Extensions.DependencyInjection;
+using ProductsManagement.Application.UseCases.ProductUseCase;
 using ProductsManagement.Application.UseCases.ProductUseCase.Dtos.Request;
 using ProductsManagement.Application.UseCases.ProductUseCase.Interfaces;
-using ProductsManagement.Application.UseCases.ProductUseCase.Validations;
 using ProductsManagement.Application.UseCases.ProductUseCase.Validations.InputValidations;
 
 namespace ProductsManagement.Application

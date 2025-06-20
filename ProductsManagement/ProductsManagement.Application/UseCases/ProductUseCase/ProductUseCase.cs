@@ -6,7 +6,7 @@ using ProductsManagement.Application.UseCases.ProductUseCase.Dtos.Response;
 using ProductsManagement.Application.UseCases.ProductUseCase.Interfaces;
 using ProductsManagement.Application.UseCases.ProductUseCase.Mapping;
 
-namespace ProductsManagement.Application.UseCases.ProductUseCase.Validations
+namespace ProductsManagement.Application.UseCases.ProductUseCase
 {
     public class ProductUseCase : IProductUseCase
     {

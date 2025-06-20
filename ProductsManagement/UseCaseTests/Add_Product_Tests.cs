@@ -2,8 +2,8 @@
 using FluentValidation.Results;
 using NSubstitute;
 using ProductsManagement.Application.Persistence;
+using ProductsManagement.Application.UseCases.ProductUseCase;
 using ProductsManagement.Application.UseCases.ProductUseCase.Dtos.Request;
-using ProductsManagement.Application.UseCases.ProductUseCase.Validations;
 using ProductsManagement.Domain.Entities;
 
 namespace UseCaseTests
