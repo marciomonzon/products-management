@@ -43,6 +43,7 @@ namespace ProductsManagement.Application.UseCases.ProductUseCase
             }
 
             var product = ProductMapper.ToEntity(request);
+            product.SetProductStatus();
 
             await _productRepository.AddAsync(product);
             await _productRepository.SaveChangesAsync();
@@ -102,6 +103,8 @@ namespace ProductsManagement.Application.UseCases.ProductUseCase
                 return BaseResponse<bool>.Fail($"Product with id {id} not found.");
 
             ProductMapper.MapUpdate(product, request);
+            product.SetProductStatus();
+
             _productRepository.Update(product);
             await _productRepository.SaveChangesAsync();
 
