@@ -5,8 +5,11 @@ namespace UpdateProductStatusWorker
 {
     public static class QuartzSetup
     {
-        public static IServiceCollection AddQuartzJobs(this IServiceCollection services)
+        public static IServiceCollection AddQuartzJobs(this IServiceCollection services, IConfiguration configuration)
         {
+            var hour = configuration.GetValue<int>("QuartzSettings:HourToStart");
+            var time = configuration.GetValue<int>("QuartzSettings:TimeToStart");
+
             services.AddQuartz(q =>
             {
                 q.UseMicrosoftDependencyInjectionJobFactory();
@@ -18,7 +21,8 @@ namespace UpdateProductStatusWorker
                 q.AddTrigger(opts => opts
                     .ForJob(jobKey)
                     .WithIdentity("UpdateProductStatusTrigger")
-                    .WithSchedule(CronScheduleBuilder.DailyAtHourAndMinute(5, 30))
+                    .WithSchedule(CronScheduleBuilder
+                                 .DailyAtHourAndMinute(hour, time))
                 );
             });
 

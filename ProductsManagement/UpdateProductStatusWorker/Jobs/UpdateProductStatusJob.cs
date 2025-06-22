@@ -19,12 +19,11 @@ namespace UpdateProductStatusWorker.Jobs
         {
             _logger.LogInformation("Executando atualização de status de produtos em {time}", DateTime.Now);
 
-            var products = await _dbContext.Products.ToListAsync();
+            var products = await _dbContext
+                                 .Products
+                                 .ToListAsync();
 
-            foreach (var product in products)
-            {
-                product.SetProductStatus();
-            }
+            products.ForEach(p => p.SetProductStatus());
 
             await _dbContext.SaveChangesAsync();
 

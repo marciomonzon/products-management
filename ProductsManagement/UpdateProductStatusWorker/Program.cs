@@ -10,12 +10,8 @@ var host = Host.CreateDefaultBuilder(args)
          services.AddDbContext<AppDbContext>(options =>
              options.UseSqlServer(configuration.GetConnectionString("DefaultConnection")));
 
-         services.AddQuartzJobs();
+         services.AddQuartzJobs(configuration);
      })
     .Build();
 
-//builder.Services.AddHostedService<Worker>();
-
 await host.RunAsync();
-//var host = builder.Build();
-//host.Run();
