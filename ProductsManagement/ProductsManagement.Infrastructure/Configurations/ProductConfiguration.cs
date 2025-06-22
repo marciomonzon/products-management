@@ -23,6 +23,9 @@ namespace ProductsManagement.Infrastructure.Configurations
             builder.Property(p => p.Stock)
                    .IsRequired();
 
+            builder.Property(p => p.Status)
+                    .IsRequired();
+
             builder.Property(p => p.Description)
                    .IsRequired()
                    .HasColumnType("varchar")
