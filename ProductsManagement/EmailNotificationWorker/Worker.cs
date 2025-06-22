@@ -36,7 +36,9 @@ namespace EmailNotificationWorker
                 var contentString = Encoding.UTF8.GetString(contentArray);
                 var message = JsonSerializer.Deserialize<ProductCreatedEvent>(contentString);
 
-                Console.WriteLine($"Message ProductCreatedEvent received with Product Id {message?.ProductId}");
+                Console.WriteLine($"Message ProductCreatedEvent received with Product Id {message?.ProductId}, " +
+                                  $"Name {message?.Name} " +
+                                  $"and Description {message?.Description}");
 
                 _channel.BasicAck(eventArgs.DeliveryTag, false);
             };

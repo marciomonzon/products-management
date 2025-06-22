@@ -47,7 +47,9 @@ namespace ProductsManagement.Application.UseCases.ProductUseCase
             await _productRepository.AddAsync(product);
             await _productRepository.SaveChangesAsync();
 
-            _publishService.PostEventProductCreated(product.Id);
+            _publishService.PostEventProductCreated(product.Id,
+                                                    product.Name,
+                                                    product.Description);
 
             return BaseResponse<int>.Ok(product.Id, "Product created successfully");
         }

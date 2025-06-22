@@ -23,9 +23,9 @@ namespace ProductsManagement.Infrastructure.ExternalServices
             _channel = _connection.CreateModel();
         }
 
-        public void PostEventProductCreated(int productId)
+        public void PostEventProductCreated(int productId, string name, string description)
         {
-            var productCreated = new ProductCreatedEvent(productId);
+            var productCreated = new ProductCreatedEvent(productId, name, description);
 
             var payload = JsonSerializer.Serialize(productCreated);
             var byteArray = Encoding.UTF8.GetBytes(payload);
