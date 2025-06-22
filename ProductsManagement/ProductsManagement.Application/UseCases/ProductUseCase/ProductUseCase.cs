@@ -1,5 +1,6 @@
 ﻿using FluentValidation;
 using ProductsManagement.Application.Persistence;
+using ProductsManagement.Application.Services.ExternalServices;
 using ProductsManagement.Application.UseCases.ProductUseCase.Dtos.Base;
 using ProductsManagement.Application.UseCases.ProductUseCase.Dtos.Request;
 using ProductsManagement.Application.UseCases.ProductUseCase.Dtos.Response;
@@ -13,14 +14,17 @@ namespace ProductsManagement.Application.UseCases.ProductUseCase
         private readonly IProductRepository _productRepository;
         private readonly IValidator<CreateProductRequest> _createValidator;
         private readonly IValidator<UpdateProductRequest> _updateValidator;
+        private readonly IPublishEventService _publishService;
 
         public ProductUseCase(IProductRepository productRepository,
                               IValidator<CreateProductRequest> createValidator,
-                              IValidator<UpdateProductRequest> updateValidator)
+                              IValidator<UpdateProductRequest> updateValidator,
+                              IPublishEventService publishService)
         {
             _productRepository = productRepository;
             _createValidator = createValidator;
             _updateValidator = updateValidator;
+            _publishService = publishService;
         }
 
         public async Task<BaseResponse<int>> CreateAsync(CreateProductRequest request)
@@ -39,8 +43,11 @@ namespace ProductsManagement.Application.UseCases.ProductUseCase
             }
 
             var product = ProductMapper.ToEntity(request);
+
             await _productRepository.AddAsync(product);
             await _productRepository.SaveChangesAsync();
+
+            _publishService.PostEventProductCreated(product.Id);
 
             return BaseResponse<int>.Ok(product.Id, "Product created successfully");
         }

@@ -2,6 +2,7 @@
 using FluentValidation.Results;
 using NSubstitute;
 using ProductsManagement.Application.Persistence;
+using ProductsManagement.Application.Services.ExternalServices;
 using ProductsManagement.Application.UseCases.ProductUseCase;
 using ProductsManagement.Application.UseCases.ProductUseCase.Dtos.Request;
 using ProductsManagement.Domain.Entities;
@@ -11,6 +12,7 @@ namespace UseCaseTests
     public class Update_Product_Tests
     {
         private readonly IProductRepository _repository = Substitute.For<IProductRepository>();
+        private readonly IPublishEventService _publishEvent = Substitute.For<IPublishEventService>();
         private readonly IValidator<UpdateProductRequest> _validator = Substitute.For<IValidator<UpdateProductRequest>>();
         private readonly ProductUseCase _useCase;
 
@@ -18,7 +20,8 @@ namespace UseCaseTests
         {
             _useCase = new ProductUseCase(_repository, 
                                           Substitute.For<IValidator<CreateProductRequest>>(),
-                                          _validator);
+                                          _validator,
+                                          _publishEvent);
         }
 
         [Fact]
