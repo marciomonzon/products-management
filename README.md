@@ -29,8 +29,8 @@ In summary, I applied the Publish/Subscribe architecture style as well.
 
 # How does the basic flow work?
 1) The User create/update a new Product;
-2) After the Product is created and save into DB, a new event is sent to the Message Broker (Rabbit MQ);
-3) The Notification Email Worker gets the Event of the Product created and sends a new e-mail (sending simulation);
+2) After the Product is created/updated and save the changes into the DB, a new event is sent to the Message Broker (Rabbit MQ);
+3) The Notification Email Worker gets the Event of the Product created/updated and sends a new e-mail (sending simulation);
 
 
 
