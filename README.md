@@ -7,7 +7,7 @@ This project was made for studying purpose. Please do not use on production envi
 - RabbitMQ Broker;
 - Fluent Validations;
 - Background Service (Workers);
-- Xunit Framework for Unit Tests.
+- Xunit Framework for Unit Tests;
 - Quartz.NET to Schedule Database Update.
 
 # Architecture Style
