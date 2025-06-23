@@ -1,6 +1,8 @@
 # Products Management - Study Application
 This project was made for studying purpose. Please do not use on production environment withouth the proper modification and adjustments.
 
+**Note: This is a Work in Progress**
+
 # Stack
 - ASP.NET Core 8 and C#;
 - EF Core and SQL Server, including Migrations;
