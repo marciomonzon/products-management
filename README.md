@@ -1,5 +1,5 @@
 # Products Management - Study Application
-This project was made for studying purpose. Please do not use on production environment withouth the proper modification and adjustments.
+This project was made for studying purpose. Please do not use on production environment without the proper modification and adjustments.
 
 **Note: This is a Work in Progress**
 
