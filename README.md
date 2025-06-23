@@ -34,4 +34,11 @@ In summary, I applied the Publish/Subscribe architecture style as well.
 
 ![image](https://github.com/user-attachments/assets/46143448-2eda-4bbc-84d0-13e66f78e7a8)
 
+# How does the Update Status Worker work?
+1) I've installed Quartz.NET to schedule the update, daily;
+2) This schedule can be done changing the parameters in appsettings.json, hour and time;
+3) After the Time and Hour set is reached, the Worker will Update the Status of the Product based on a specific Business Rule.
+
+![image](https://github.com/user-attachments/assets/6c801db1-0a6a-4f01-8cfd-c4e47fb58ba9)
+
 
