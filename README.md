@@ -18,6 +18,7 @@ I implemented the project using Clean Architecture style. Please take a look in 
 - Domain Layer: It has the Business Entities and Domain Events. This layer should not communicate with nobody.
 - Infrastructure Layer: This layer is responsible to persists data into database and sends events to the RabbitMQ Broker.
 
+  
 <img alt="image" src="https://github.com/user-attachments/assets/825a1f35-a317-48a3-8cd9-39bb5a0b5097" />
 
 
