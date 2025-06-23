@@ -6,9 +6,10 @@ This project was made for studying purpose. Please do not use on production envi
 # Stack
 - ASP.NET Core 8 and C#;
 - EF Core and SQL Server, including Migrations;
+- EF Core Configuration (Fluent API);
 - RabbitMQ Broker;
 - Fluent Validations;
-- Background Service (Workers);
+- Background Services (Workers);
 - Xunit Framework for Unit Tests;
 - Quartz.NET to Schedule Database Update.
 
