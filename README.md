@@ -8,6 +8,7 @@ This project was made for studying purpose. Please do not use on production envi
 - Fluent Validations;
 - Background Service (Workers);
 - Xunit Framework for Unit Tests.
+- Quartz.NET to Schedule Database Update.
 
 # Architecture Style
 I implemented the project using Clean Architecture style. Please take a look in the follow image to understand it better.
