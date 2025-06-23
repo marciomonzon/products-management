@@ -23,7 +23,7 @@ In summary, I applied the Publish/Subscribe architecture style as well.
 
 <br/>
   
-<img alt="image" src="https://github.com/user-attachments/assets/825a1f35-a317-48a3-8cd9-39bb5a0b5097" />
+<img alt="Clean Architecture applied" src="https://github.com/user-attachments/assets/825a1f35-a317-48a3-8cd9-39bb5a0b5097" />
 
 <br/>
 
