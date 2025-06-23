@@ -12,7 +12,8 @@ This project was made for studying purpose. Please do not use on production envi
 # Architecture Style
 I implemented the project using Clean Architecture style. Please take a look in the follow image to understand it better.
 
-![image](https://github.com/user-attachments/assets/c09c8aee-a826-4041-a180-ff081eb9a65b)
+<img width="404" alt="image" src="https://github.com/user-attachments/assets/825a1f35-a317-48a3-8cd9-39bb5a0b5097" />
+
 
 - Presentation Layer: It is the API and get requests from the users and sends them to the Application Layer;
 - Application Layer: It is where the Use Case were implemented. This has the business rules and communicates with the Infrastructure Layer;
